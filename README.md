@@ -66,7 +66,7 @@ sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator 
 rosrun ik_arm_solver_de random_maker_kiri.py
 ```
 
-**Terminal 3**
+**Terminal 6**
 
 ```bash
 cd ~
