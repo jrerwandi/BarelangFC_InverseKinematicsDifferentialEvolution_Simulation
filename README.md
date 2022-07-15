@@ -1,5 +1,14 @@
 # BarelangFC_InverseKinematicsDifferentialEvolution_Simulation
  
+**Setup Workspace**
+
+Install dependencies
+
+```bash
+sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
+sudo apt install ros-noetic-ros-control
+sudo apt install ros-noetic-ros-controllers
+```
 
 Clone simulation package
 
@@ -62,7 +71,6 @@ rosrun ik_arm_solver_de forward_random_kiri.py
 cd ~
 cd barelangfc
 source devel/setup.bash
-sudo apt install python3-rosdep python3-rosinstall python3-rosinstall-generator python3-wstool build-essential
 rosrun ik_arm_solver_de random_maker_kiri.py
 ```
 
