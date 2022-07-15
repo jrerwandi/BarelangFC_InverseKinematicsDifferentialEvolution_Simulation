@@ -1,0 +1,18 @@
+<?xml version="1.0" ?>
+<launch>    
+    <param name="gazebo"                   value="false"    type="bool"/>
+    <param name="gazebo_robot_name"        value="humanoid"/>
+    
+    <!-- <param name="offset_file_path"         value="$(find op3_tuning_module)/data/offset.yaml"/> -->
+    <param name="robot_file_path"          value="$(find humnoaid_manager)/config/barelangfc.robot"/>
+    <param name="init_file_path"           value="$(find humanoid_manager)/config/dxl_init_barelangfc.yaml"/>
+    <param name="device_name"              value="/dev/ttyUSB0"/>
+    
+    <!-- OP3 Manager -->
+    <node pkg="humanoid_manager" type="humanoid_manager" name="humanoid_manager" output="screen">
+	  <param name="angle_unit" value="30" />
+	</node>
+
+    <!-- OP3 Localization -->
+    <node pkg="humanoid_localization" type="humanoid_localization" name="humanoid_localization" output="screen"/>
+</launch>

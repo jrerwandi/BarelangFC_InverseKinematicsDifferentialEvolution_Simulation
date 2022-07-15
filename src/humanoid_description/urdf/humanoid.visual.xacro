@@ -1,0 +1,351 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- body link -->
+  <xacro:macro name="insert_mesh_base_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/base.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||            RIGHT LEG   |||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->.
+
+  <!-- right hip yaw link -->
+  <xacro:macro name="insert_mesh_r_hip_yaw_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rhip_yaw.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- right hip roll link -->
+  <xacro:macro name="insert_mesh_r_hip_roll_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rhip_roll.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- right hip pitch back link -->
+  <xacro:macro name="insert_mesh_r_hip_pitch_back_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rpaha_belakang.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- right hip pitch front link -->
+  <xacro:macro name="insert_mesh_r_hip_pitch_front_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rpaha_depan.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+    <!-- right knee link -->
+  <xacro:macro name="insert_mesh_r_knee_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rlutut.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- right ankle pitch back link -->
+  <xacro:macro name="insert_mesh_r_ank_pitch_back_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rbetis_belakang.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- right ankle pitch front link -->
+  <xacro:macro name="insert_mesh_r_ank_pitch_front_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rbetis_depan.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- right ankle link -->
+  <xacro:macro name="insert_mesh_r_ank_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rankle.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- right ankle roll link -->
+  <xacro:macro name="insert_mesh_r_ank_roll_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rtelapak.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||            LEFT LEG    |||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+
+<!-- left hip yaw link -->
+  <xacro:macro name="insert_mesh_l_hip_yaw_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Lhip_yaw.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- left hip roll link -->
+  <xacro:macro name="insert_mesh_l_hip_roll_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Lhip_roll.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- left hip pitch back link -->
+  <xacro:macro name="insert_mesh_l_hip_pitch_back_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Lpaha_belakang.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- left hip pitch front link -->
+  <xacro:macro name="insert_mesh_l_hip_pitch_front_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Lpaha_depan.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+    <!-- left knee link -->
+  <xacro:macro name="insert_mesh_l_knee_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Llutut.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- left ankle pitch back link -->
+  <xacro:macro name="insert_mesh_l_ank_pitch_back_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Lbetis_belakang.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- left ankle pitch front link -->
+  <xacro:macro name="insert_mesh_l_ank_pitch_front_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Lbetis_depan.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- left ankle link -->
+  <xacro:macro name="insert_mesh_l_ank_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Lankle.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- left ankle roll link -->
+  <xacro:macro name="insert_mesh_l_ank_roll_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Ltelapak.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||            RIGHT ARM   |||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+
+  <!-- right shoulder pitch joint -->
+  <xacro:macro name="insert_mesh_r_sho_pitch_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rshoulder.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- right shoulder pitch joint -->
+  <xacro:macro name="insert_mesh_r_sho_roll_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rarm.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- right elbow joint -->
+  <xacro:macro name="insert_mesh_r_el_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Relbow.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro> 
+
+  <!-- right elbow yaw joint -->
+  <xacro:macro name="insert_mesh_r_el_yaw_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Rhand.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro> 
+  
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||            LEFT ARM   |||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+  <!-- left shoulder pitch joint -->
+  <xacro:macro name="insert_mesh_l_sho_pitch_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Lshoulder.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- left shoulder pitch joint -->
+  <xacro:macro name="insert_mesh_l_sho_roll_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Larm.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- left elbow joint -->
+  <xacro:macro name="insert_mesh_l_el_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Lelbow.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- left elbow yaw joint -->
+  <xacro:macro name="insert_mesh_l_el_yaw_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/Lhand.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+   
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||            HEAD        |||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+  <!-- head yaw joint -->
+  <xacro:macro name="insert_mesh_head_pan_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/pan.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+
+  <!-- head yaw joint -->
+  <xacro:macro name="insert_mesh_head_tilt_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/tilt.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+    <!-- head cam joint -->
+  <xacro:macro name="insert_mesh_cam_link">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <geometry>
+      <mesh filename="package://humanoid_description/meshes/visual/cam.STL"/>
+    </geometry>
+    <material name="Grey">
+      <color rgba="0.60 0.60 0.60 1.0"/>
+    </material>
+  </xacro:macro>
+</robot>

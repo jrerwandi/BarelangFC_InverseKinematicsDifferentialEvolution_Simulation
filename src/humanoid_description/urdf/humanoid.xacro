@@ -1,0 +1,89 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="humanoid">
+
+  <xacro:include filename="$(find humanoid_description)/urdf/humanoid.collision.xacro" />
+  <xacro:include filename="$(find humanoid_description)/urdf/humanoid.visual.xacro" />
+  <xacro:include filename="$(find humanoid_description)/urdf/humanoid.inertia.xacro" />
+
+  <xacro:include filename="$(find humanoid_description)/urdf/humanoid.lleg.xacro" />
+  <xacro:include filename="$(find humanoid_description)/urdf/humanoid.rleg.xacro" />
+  <xacro:include filename="$(find humanoid_description)/urdf/humanoid.rarm.xacro" />
+  <xacro:include filename="$(find humanoid_description)/urdf/humanoid.larm.xacro" />
+  <xacro:include filename="$(find humanoid_description)/urdf/humanoid.head.xacro" /> 
+
+  <xacro:include filename="$(find humanoid_description)/urdf/humanoid.gazebo.xacro" />
+  <xacro:include filename="$(find humanoid_description)/urdf/humanoid.transmisi.xacro" />
+
+  <!-- body link -->
+  <link name="base_link">
+    <visual>
+      <xacro:insert_mesh_base_link />
+    </visual>
+    <collision>
+      <xacro:insert_meshcol_base_link />
+    </collision>
+    <inertial>
+      <xacro:insert_inertia_base_link />
+    </inertial>
+  </link>
+
+  <!-- leg link -->
+  <xacro:humanoid_l_leg parent="base_link" />
+  <xacro:humanoid_r_leg parent="base_link" />
+    <xacro:mimic_joint_plugin_gazebo name_prefix="l_ank_pitch_front"
+                                     parent_joint="l_ank_pitch_back"
+                                     mimic_joint="l_ank_pitch_front"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:mimic_joint_plugin_gazebo name_prefix="l_ank"
+                                     parent_joint="l_ank_pitch_back"
+                                     mimic_joint="l_ank"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+     <xacro:mimic_joint_plugin_gazebo name_prefix="l_hip_pitch_front"
+                                     parent_joint="l_knee"
+                                     mimic_joint="l_hip_pitch_front"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:mimic_joint_plugin_gazebo name_prefix="l_hip_pitch_back"
+                                     parent_joint="l_knee"
+                                     mimic_joint="l_hip_pitch_back"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+
+    <xacro:mimic_joint_plugin_gazebo name_prefix="r_ank_pitch_front"
+                                     parent_joint="r_ank_pitch_back"
+                                     mimic_joint="r_ank_pitch_front"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:mimic_joint_plugin_gazebo name_prefix="r_ank"
+                                     parent_joint="r_ank_pitch_back"
+                                     mimic_joint="r_ank"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+     <xacro:mimic_joint_plugin_gazebo name_prefix="r_hip_pitch_front"
+                                     parent_joint="r_knee"
+                                     mimic_joint="r_hip_pitch_front"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:mimic_joint_plugin_gazebo name_prefix="r_hip_pitch_back"
+                                     parent_joint="r_knee"
+                                     mimic_joint="r_hip_pitch_back"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+  <!-- arm link -->
+  <xacro:humanoid_l_arm parent="base_link" />
+  <xacro:humanoid_r_arm parent="base_link" />
+
+  <!-- head links -->
+  <xacro:humanoid_head parent="base_link" />
+
+</robot>

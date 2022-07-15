@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!--
+  <xacro:property name="pi" value="3.141592654" />
+  -->
+
+  <!-- right leg -->
+  <xacro:macro name="humanoid_r_arm" params="parent">
+
+  <!-- right shoulder pitch joint -->
+  <joint name="r_sho_pitch" type="revolute">
+    <parent link="${parent}"/>
+    <child link="r_sho_pitch_link"/>
+    <origin xyz="0.000034 -0.177209 0.276882" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="5" lower="${-pi}" upper="${pi}" />
+    <dynamics damping="0.1" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_sho_pitch" />
+
+  <!-- right shoulder pitch link -->
+  <link name="r_sho_pitch_link">
+    <visual>
+      <xacro:insert_mesh_r_sho_pitch_link />
+    </visual>
+    <collision>
+      <xacro:insert_meshcol_r_sho_pitch_link />
+    </collision>
+    <inertial>
+      <xacro:insert_inertia_r_sho_pitch_link />
+    </inertial>
+  </link>
+
+  <!-- right shoulder roll joint -->
+  <joint name="r_sho_roll" type="revolute">
+    <parent link="r_sho_pitch_link"/>
+    <child link="r_sho_roll_link"/>
+    <origin xyz="0.02506 -0.049194 -0.026717" rpy="0 0 0" />
+    <axis xyz="1 0 0" />
+    <limit effort="10" velocity="5" lower="${-pi}" upper="${pi}" />
+    <dynamics damping="0.1" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_sho_roll" />
+
+  <!-- right shoulder roll link -->
+  <link name="r_sho_roll_link">
+    <visual>
+      <xacro:insert_mesh_r_sho_roll_link />
+    </visual>
+    <collision>
+      <xacro:insert_meshcol_r_sho_roll_link />
+    </collision>
+    <inertial>
+      <xacro:insert_inertia_r_sho_roll_link />
+    </inertial>
+  </link>
+
+  <!-- right elbow joint -->
+  <joint name="r_el" type="revolute">
+    <parent link="r_sho_roll_link"/>
+    <child link="r_el_link"/>
+    <origin xyz="-0.0079 -0.0245 -0.207906" rpy="0 0 0" />
+    <axis xyz="0 1 0" />
+    <limit effort="10" velocity="5" lower="${-pi}" upper="${pi}" />
+    <dynamics damping="0.1" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_el" />
+
+  <!-- right elbow link -->
+  <link name="r_el_link">
+    <visual>
+      <xacro:insert_mesh_r_el_link />
+    </visual>
+    <collision>
+      <xacro:insert_meshcol_r_el_link />
+    </collision>
+    <inertial>
+      <xacro:insert_inertia_r_el_link />
+    </inertial>
+  </link>
+
+  <!-- right elbow yaw joint -->
+  <joint name="r_el_yaw" type="revolute">
+    <parent link="r_el_link"/>
+    <child link="r_el_yaw_link"/>
+    <origin xyz="-0.0155 0.0245 -0.078296" rpy="0 0 0" />
+    <axis xyz="0 0 1" />
+    <limit effort="10" velocity="5" lower="${-pi}" upper="${pi}" />
+    <dynamics damping="0.1" friction="0.0" />
+  </joint>
+  <xacro:insert_transmission name="r_el_yaw" />
+
+  <!-- right elbow yaw link -->
+  <link name="r_el_yaw_link">
+    <visual>
+      <xacro:insert_mesh_r_el_yaw_link />
+    </visual>
+    <collision>
+      <xacro:insert_meshcol_r_el_yaw_link />
+    </collision>
+    <inertial>
+      <xacro:insert_inertia_r_el_yaw_link />
+    </inertial>
+</link>
+
+  <!-- end effector right arm -->
+  <joint name="end_eff_r_arm" type="fixed">
+    <origin xyz="0.001081 0 -0.228470" rpy="0 0 0"/>
+    <parent link="r_el_yaw_link"/>
+    <child link="end_eff_r_arm_link"/>
+    <axis xyz="1 0 0" />
+  </joint>
+  <link name="end_eff_r_arm_link">
+  </link>
+
+  </xacro:macro>
+</robot>

@@ -1,0 +1,780 @@
+<?xml version="1.0"?>
+<robot name="humanoid" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<xacro:include filename="$(find humanoid_description)/urdf/humanoid.gazebo.xacro" />
+<xacro:include filename="$(find humanoid_description)/urdf/humanoid.transmisi.xacro" />
+    <link name="base_link">
+        <visual>
+            <origin xyz="0.000 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/base.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/base_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.004 0.000 0.201"/>
+            <mass value="5.292"/>
+            <inertia ixx="0.119892" ixy="-0.000007" ixz="-0.001838" 
+                     iyy="0.072071" iyz="-0.000003" 
+                     izz="0.074976"/>
+        </inertial>
+    </link>
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||     SHOULDER          |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Lshoulder_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="Lshoulder_link"/>
+        <origin xyz="0.000034 0.177209 0.276882" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0.45" upper="0.45" effort="10" velocity="3.14"/> 
+    </joint> 
+    <link name="Lshoulder_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Lshoulder.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Lshoulder_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.000018 0.025567 -0.008154"/>
+            <mass value="0.124321"/>
+            <inertia ixx="0.000142" ixy="0.000000" ixz="0.000000" 
+                     iyy="0.000143" iyz="-0.000024" 
+                     izz="0.000138"/>
+        </inertial>
+    </link>
+    <xacro:insert_transmission name="Lshoulder_joint" /> 
+    <!-- <xacro:insert_transmission name="Lshoulder_joint" />  -->
+
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||        ARM           |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Larm_joint" type="revolute">
+        <parent link="Lshoulder_link"/>
+        <child link="Larm_link"/>
+        <origin xyz="0.02506 0.049194 -0.026717" rpy="0.0 0.0 0.0"/>
+        <axis xyz="1 0 0"/>
+        <limit lower="-0.15" upper="0.45" effort="10" velocity="3.14"/> 
+    </joint> 
+    <link name="Larm_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Larm.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Larm_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.024138 0.000000 -0.055244"/>
+            <mass value="0.536868"/>
+            <inertia ixx="0.002466" ixy="0.000000" ixz="0.000038" 
+                     iyy="0.002420" iyz="0.000000" 
+                     izz="0.000298"/>
+        </inertial>
+    </link>
+    <xacro:insert_transmission name="Larm_joint" /> 
+    <!-- <xacro:insert_transmission name="Lshoulder_joint" />  -->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||     ELBOW          |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Lelbow_joint" type="revolute">
+        <parent link="Larm_link"/>
+        <child link="Lelbow_link"/>
+        <origin xyz="-0.0079 -0.0245 -0.207906" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 1 0"/>
+        <limit lower="-0.45" upper="0.45" effort="10" velocity="3.14"/> 
+    </joint> 
+    <link name="Lelbow_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Lelbow.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Lelbow_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.023724 0.024235 -0.031395"/>
+            <mass value="0.587791"/>
+            <inertia ixx="0.000608" ixy="-0.000002" ixz="0.000110" 
+                     iyy="0.000697" iyz="-0.000005" 
+                     izz="0.000322"/>
+        </inertial>
+    </link>
+    <xacro:insert_transmission name="Lelbow_joint" /> 
+   <!--  <xacro:insert_transmission name="Lelbow_joint" />  -->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||       HAND          |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Lhand_joint" type="revolute">
+        <parent link="Lelbow_link"/>
+        <child link="Lhand_link"/>
+        <origin xyz="-0.0155 0.0245 -0.078296" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-0.45" upper="0.45" effort="10" velocity="3.14"/> 
+    </joint> 
+    <link name="Lhand_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Lhand.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Lhand_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.000418 0.000039 -0.164104"/>
+            <mass value="0.772383"/>
+            <inertia ixx="0.003601" ixy="-0.000000" ixz="0.000011" 
+                     iyy="0.003625" iyz="0.000001" 
+                     izz="0.000636"/>
+        </inertial>
+    </link>
+    <xacro:insert_transmission name="Lhand_joint" /> 
+    <!-- <xacro:insert_transmission name="Lhand_joint" />  -->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||     HIP  YAW         |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Lhip_yaw_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="Lhip_yaw_link"/>
+        <origin xyz="0.000 0.105 -0.02" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-0.45" upper="0.45" effort="10" velocity="3.14"/> 
+    </joint> 
+    <link name="Lhip_yaw_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Lhip_yaw.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Lhip_yaw_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.000 0.000 -0.026189"/>
+            <mass value="0.408755"/>
+            <inertia ixx="0.000164" ixy="0.000000" ixz="0.000001" 
+                     iyy="0.000476" iyz="0.000000" 
+                     izz="0.000486"/>
+        </inertial>
+    </link>
+    <joint name="Rhip_yaw_joint" type="revolute">
+        <parent link="base_link"/>
+        <child link="Rhip_yaw_link"/>
+        <origin xyz="0.000 -0.105 -0.02" rpy="0.0 0.0 0.0"/>
+        <axis xyz="0 0 1"/>
+        <limit lower="-0.45" upper="0.45" effort="10" velocity="3.14"/> 
+    </joint> 
+    <link name="Rhip_yaw_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Rhip_yaw.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Rhip_yaw_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.000 0.000 -0.026189"/>
+            <mass value="0.408755"/>
+            <inertia ixx="0.000164" ixy="0.000000" ixz="0.000001" 
+                     iyy="0.000476" iyz="0.000000" 
+                     izz="0.000486"/>
+        </inertial>
+    </link>
+    <xacro:insert_transmission name="Rhip_yaw_joint" /> 
+    <xacro:insert_transmission name="Lhip_yaw_joint" /> 
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||     HIP  ROLL        |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+   <joint name="Lhip_roll_joint" type="revolute">
+        <parent link="Lhip_yaw_link"/>
+        <child link="Lhip_roll_link"/>
+        <origin xyz="0.05179 0.0 -0.0425" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="100.0" velocity="3.14"/>  
+        <axis xyz="1 0 0"/>
+    </joint>
+    <link name="Lhip_roll_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Lhip_roll.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Lhip_roll_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.051690 -0.000153 -0.041860"/>
+            <mass value="1.107543"/>
+            <inertia ixx="0.001185" ixy="-0.000000" ixz="0.000012" 
+                     iyy="0.001362" iyz="0.000001" 
+                     izz="0.001901"/>
+        </inertial>
+    </link>
+    <joint name="Rhip_roll_joint" type="revolute">
+        <parent link="Rhip_yaw_link"/>
+        <child link="Rhip_roll_link"/>
+        <origin xyz="0.05179 0.0 -0.0425" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>  
+        <axis xyz="1 0 0"/>
+    </joint>
+    <link name="Rhip_roll_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Rhip_roll.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Rhip_roll_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.051690 -0.000153 -0.041860"/>
+            <mass value="1.107543"/>
+            <inertia ixx="0.001185" ixy="-0.000000" ixz="0.000012" 
+                     iyy="0.001362" iyz="0.000001" 
+                     izz="0.001901"/>
+        </inertial>
+    </link>
+    <xacro:insert_transmission name="Rhip_roll_joint" /> 
+    <xacro:insert_transmission name="Lhip_roll_joint" /> 
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||  PAHA BELAKANG       |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Lpaha_belakang_joint" type="revolute">
+        <parent link="Lhip_roll_link"/>
+        <child link="Lpaha_belakang_link"/>
+        <origin xyz="-0.08744 0.05279 -0.05804" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="Lpaha_belakang_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Lpaha_belakang.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Lpaha_belakang_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.007787 -0.052720 -0.137499"/>
+            <mass value="0.168201"/>
+            <inertia ixx="0.001266" ixy="0.000000" ixz="-0.000001" 
+                     iyy="0.000870" iyz="0.000000" 
+                     izz="0.000444"/>
+        </inertial>
+    </link>
+    <joint name="Rpaha_belakang_joint" type="revolute">
+        <parent link="Rhip_roll_link"/>
+        <child link="Rpaha_belakang_link"/>
+        <origin xyz="-0.08744 0.05279 -0.05804" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="Rpaha_belakang_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Rpaha_belakang.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Rpaha_belakang_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.007787 -0.052720 -0.137499"/>
+            <mass value="0.168201"/>
+            <inertia ixx="0.001266" ixy="0.000000" ixz="-0.000001" 
+                     iyy="0.000870" iyz="0.000000" 
+                     izz="0.000444"/>
+        </inertial>
+    </link>
+    <xacro:mimic_joint_plugin_gazebo name_prefix="Rpaha_belakang_joint"
+                                     parent_joint="Rlutut_joint"
+                                     mimic_joint="Rpaha_belakang_joint"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:mimic_joint_plugin_gazebo name_prefix="Lpaha_belakang_joint"
+                                     parent_joint="Llutut_joint"
+                                     mimic_joint="Lpaha_belakang_joint"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:insert_transmission name="Rpaha_belakang_joint" /> 
+    <xacro:insert_transmission name="Lpaha_belakang_joint" /> 
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||       LUTUT          |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Llutut_joint" type="revolute">
+        <parent link="Lpaha_belakang_link"/>
+        <child link="Llutut_link"/>
+        <origin xyz="0.0 0.0 -0.275" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 -1 0"/>        
+    </joint>
+    <link name="Llutut_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Llutut.STL"/>
+            </geometry>     
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Llutut_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.041262 -0.041430 -0.021997"/>
+            <mass value="1.901538"/>
+            <inertia ixx="0.004405" ixy="0.000051" ixz="0.000000" 
+                     iyy="0.005540" iyz="0.000000" 
+                     izz="0.004002"/>
+        </inertial>
+    </link>
+    <joint name="Rlutut_joint" type="revolute">
+        <parent link="Rpaha_belakang_link"/>
+        <child link="Rlutut_link"/>
+        <origin xyz="0.0 0.0 -0.275" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 -1 0"/>        
+    </joint>
+    <link name="Rlutut_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Rlutut.STL"/>
+            </geometry>     
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Rlutut_col.STL"/>
+                </geometry>
+        </collision>
+         <inertial>
+            <origin xyz="0.041262 -0.041430 -0.021997"/>
+            <mass value="1.901538"/>
+            <inertia ixx="0.004405" ixy="0.000051" ixz="0.000000" 
+                     iyy="0.005540" iyz="0.000000" 
+                     izz="0.004002"/>
+        </inertial>
+    </link>
+    <xacro:insert_transmission name="Rlutut_joint" /> 
+    <xacro:insert_transmission name="Llutut_joint" /> 
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||   PAHA DEPAN         |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+     <joint name="Lpaha_depan_joint" type="revolute">
+        <parent link="Llutut_link"/>
+        <child link="Lpaha_depan_link"/>
+        <origin xyz="0.0715 0.000 0.028" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="Lpaha_depan_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Lpaha_depan.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Lpaha_depan_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.013333 -0.052743 0.147571"/>
+            <mass value="0.232652"/>
+            <inertia ixx="0.001754" ixy="0.000000" ixz="0.000028" 
+                     iyy="0.001222" iyz="0.000000" 
+                     izz="0.000630"/>
+        </inertial> 
+    </link>
+    
+    <joint name="Rpaha_depan_joint" type="revolute">
+        <parent link="Rlutut_link"/>
+        <child link="Rpaha_depan_link"/>
+        <origin xyz="0.0715 0.000 0.028" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="Rpaha_depan_link">
+        <visual>
+            <origin xyz="0.000 0.000 0.000" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Rpaha_depan.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Rpaha_depan_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.013333 -0.052743 0.147571"/>
+            <mass value="0.232652"/>
+            <inertia ixx="0.001754" ixy="0.000000" ixz="0.000028" 
+                     iyy="0.001222" iyz="0.000000" 
+                     izz="0.000630"/>
+        </inertial> 
+    </link> 
+    <xacro:mimic_joint_plugin_gazebo name_prefix="Rpaha_depan_joint"
+                                     parent_joint="Rlutut_joint"
+                                     mimic_joint="Rpaha_depan_joint"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:mimic_joint_plugin_gazebo name_prefix="Lpaha_depan_joint"
+                                     parent_joint="Llutut_joint"
+                                     mimic_joint="Lpaha_depan_joint"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:insert_transmission name="Rpaha_depan_joint" /> 
+    <xacro:insert_transmission name="Lpaha_depan_joint" /> 
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||    BETIS DEPAN       |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Lbetis_depan_joint" type="revolute">
+        <parent link="Llutut_link"/>
+        <child link="Lbetis_depan_link"/>
+        <origin xyz="0.0715 0.000 -0.071992" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 1 0"/>       
+    </joint>
+    <link name="Lbetis_depan_link">
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Lbetis_depan.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Lbetis_depan_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.025389 -0.052925 -0.092950"/>
+            <mass value="0.082810"/>
+            <inertia ixx="0.000217" ixy="0.000000" ixz="0.000078" 
+                     iyy="0.000077" iyz="0.000000" 
+                     izz="0.000142"/>
+        </inertial>
+    </link>
+    <joint name="Rbetis_depan_joint" type="revolute">
+        <parent link="Rlutut_link"/>
+        <child link="Rbetis_depan_link"/>
+        <origin xyz="0.0715 0.000 -0.071992" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 1 0"/>       
+    </joint>
+    <link name="Rbetis_depan_link">
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Rbetis_depan.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Rbetis_depan_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.025389 -0.052925 -0.092950"/>
+            <mass value="0.082810"/>
+            <inertia ixx="0.000217" ixy="0.000000" ixz="0.000078" 
+                     iyy="0.000077" iyz="0.000000" 
+                     izz="0.000142"/>
+        </inertial>
+    </link>
+    <xacro:mimic_joint_plugin_gazebo name_prefix="Rbetis_depan_joint"
+                                     parent_joint="Rbetis_belakang_joint"
+                                     mimic_joint="Rbetis_depan_joint"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:mimic_joint_plugin_gazebo name_prefix="Lbetis_depan_joint"
+                                     parent_joint="Lbetis_belakang_joint"
+                                     mimic_joint="Lbetis_depan_joint"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:insert_transmission name="Rbetis_depan_joint" /> 
+    <xacro:insert_transmission name="Lbetis_depan_joint" /> 
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||     BETIS BELAKANG   |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Lbetis_belakang_joint" type="revolute">
+        <parent link="Llutut_link"/>
+        <child link="Lbetis_belakang_link"/>
+        <origin xyz="0.000 0.000 -0.043992" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="Lbetis_belakang_link">
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Lbetis_belakang.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Lbetis_belakang_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.004340 -0.052765 -0.136269"/>
+            <mass value="0.163307"/>
+            <inertia ixx="0.001208" ixy="0.000000" ixz="0.000008" 
+                     iyy="0.000817" iyz="0.000000" 
+                     izz="0.000422"/>
+        </inertial>
+    </link>
+    <joint name="Rbetis_belakang_joint" type="revolute">
+        <parent link="Rlutut_link"/>
+        <child link="Rbetis_belakang_link"/>
+        <origin xyz="0.000 0.000 -0.043992" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+    <link name="Rbetis_belakang_link">
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Rbetis_belakang.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Rbetis_belakang_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.004340 -0.052765 -0.136269"/>
+            <mass value="0.163307"/>
+            <inertia ixx="0.001208" ixy="0.000000" ixz="0.000008" 
+                     iyy="0.000817" iyz="0.000000" 
+                     izz="0.000422"/>
+        </inertial>
+    </link>
+    <xacro:insert_transmission name="Rbetis_belakang_joint" /> 
+    <xacro:insert_transmission name="Lbetis_belakang_joint" /> 
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||         ANKLE        |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Lankle_joint" type="revolute">
+        <parent link="Lbetis_belakang_link"/>
+        <child link="Lankle_link"/>
+        <origin xyz="0.000 0.000 -0.275" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 1 0"/>
+    </joint>
+
+    <link name="Lankle_link">
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Lankle.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Lankle_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.035750 -0.052944 -0.016184"/>
+            <mass value="1.107543"/>
+            <inertia ixx="0.001185" ixy="0.000000" ixz="-0.000012" 
+                     iyy="0.001362" iyz="-0.000001" 
+                     izz="0.001901"/>
+        </inertial>
+    </link>
+    <joint name="Rankle_joint" type="revolute">
+        <parent link="Rbetis_belakang_link"/>
+        <child link="Rankle_link"/>
+        <origin xyz="0.000 0.000 -0.275" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="0 -1 0"/>
+    </joint>
+
+    <link name="Rankle_link">
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Rankle.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Rankle_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="0.035750 -0.052944 -0.016184"/>
+            <mass value="1.107543"/>
+            <inertia ixx="0.001185" ixy="0.000000" ixz="-0.000012" 
+                     iyy="0.001362" iyz="-0.000001" 
+                     izz="0.001901"/>
+        </inertial>
+    </link>
+    <xacro:mimic_joint_plugin_gazebo name_prefix="Rankle_joint"
+                                     parent_joint="Rbetis_belakang_joint"
+                                     mimic_joint="Rankle_joint"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:mimic_joint_plugin_gazebo name_prefix="Lankle_joint"
+                                     parent_joint="Lbetis_belakang_joint"
+                                     mimic_joint="Lankle_joint"
+                                     has_pid="false"
+                                     multiplier="1.0"
+                                     max_effort="10.6" />
+    <xacro:insert_transmission name="Rankle_joint" /> 
+    <xacro:insert_transmission name="Lankle_joint" /> 
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--|||||||||||||||||||||||||||||||||||       TELAPAK        |||||||||||||||||||||||||||||||||||||||||||||||-->
+<!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
+    <joint name="Ltelapak_joint" type="revolute">
+        <parent link="Lankle_link"/>
+        <child link="Ltelapak_link"/>
+        <origin xyz="0.08744 -0.05279 -0.05804" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+    <link name="Ltelapak_link">
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Ltelapak.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Ltelapak_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.027367 0.014066 -0.030664"/>
+            <mass value="0.836007"/>
+            <inertia ixx="0.002250" ixy="0.000207" ixz="-0.000271" 
+                     iyy="0.005430" iyz="-0.000157" 
+                     izz="0.006932"/>
+        </inertial>
+    </link> 
+    <joint name="Rtelapak_joint" type="revolute">
+        <parent link="Rankle_link"/>
+        <child link="Rtelapak_link"/>
+        <origin xyz="0.08744 -0.05279 -0.05804" rpy="0.0 0.0 0.0"/>
+        <limit lower="-0.45" upper="0.45" effort="10.0" velocity="3.14"/>
+        <axis xyz="1 0 0"/>
+    </joint>
+    <link name="Rtelapak_link">
+        <visual>
+            <origin xyz="0.00 0.00 0.00" rpy="0.00 0.00 0.00"/>
+            <geometry>
+                <mesh filename="package://humanoid_description/meshes/visual/Rtelapak.STL"/>
+            </geometry>    
+        </visual>
+        <collision>
+            <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+                <geometry>
+                    <mesh filename="package://humanoid_description/meshes/collision/Rtelapak_col.STL"/>
+                </geometry>
+        </collision>
+        <inertial>
+            <origin xyz="-0.027448 -0.014066 -0.030664"/>
+            <mass value="0.836007"/>
+            <inertia ixx="0.002250" ixy="-0.000205" ixz="-0.000269" 
+                     iyy="0.005417" iyz="0.000157" 
+                     izz="0.006920"/>
+        </inertial>
+    </link> 
+    <xacro:insert_transmission name="Rtelapak_joint" /> 
+    <xacro:insert_transmission name="Ltelapak_joint" /> 
+
+    <joint name="Rend_effector_fixed_joint" type="fixed">
+        <parent link="Rtelapak_link"/>
+        <child link="Rend_effector_link"/>
+        <origin xyz="-0.00979 -0.02423 -0.0455" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <link name="Rend_effector_link">
+        
+    </link>
+    
+    <joint name="Lend_effector_fixed_joint" type="fixed">
+        <parent link="Ltelapak_link"/>
+        <child link="Lend_effector_link"/>
+        <origin xyz="-0.00979 0.02423 -0.0455" rpy="0.0 0.0 0.0"/>
+    </joint>
+
+    <link name="Lend_effector_link">
+        
+    </link>
+
+</robot>

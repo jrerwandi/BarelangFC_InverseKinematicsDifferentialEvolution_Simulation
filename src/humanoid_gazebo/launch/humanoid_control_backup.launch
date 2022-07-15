@@ -1,0 +1,38 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find humanoid_gazebo)/config/humanoid_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+    output="screen" ns="/humanoid" args="Lshoulder_joint_position_controller 
+                                         Larm_joint_position_controller 
+                                         Lelbow_joint_position_controller 
+                                         Lhand_joint_position_controller 
+                                         Rhip_yaw_joint_position_controller 
+                                         Lhip_yaw_joint_position_controller 
+                                         Rhip_roll_joint_position_controller
+                                         Lhip_roll_joint_position_controller
+                                         Rpaha_belakang_joint_position_controller
+                                         Lpaha_belakang_joint_position_controller
+                                         Rlutut_joint_position_controller
+                                         Llutut_joint_position_controller
+                                         Rpaha_depan_joint_position_controller
+                                         Lpaha_depan_joint_position_controller
+                                         Rbetis_depan_joint_position_controller
+                                         Lbetis_depan_joint_position_controller
+                                         Rbetis_belakang_joint_position_controller
+                                         Lbetis_belakang_joint_position_controller
+                                         Rankle_joint_position_controller
+                                         Lankle_joint_position_controller
+                                         Rtelapak_joint_position_controller
+                                         Ltelapak_joint_position_controller
+                                         joint_state_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+        respawn="false" output="screen">
+    <remap from="/joint_states" to="/humanoid/joint_states" />
+  </node>
+
+</launch>
