@@ -29,6 +29,20 @@ catkin_make
 source devel/setup.bash 
 ```
 
+Create executable
+```bash
+cd ~
+cd barelangfc/src/BarelangFC_InverseKinematicsDifferentialEvolution_Simulation/ik_arm_solver_de/InverseKinematics/
+chmod +x forward_random_kanan.py
+chmod +x forward_random_kiri.py
+chmod +x IK_Arm_Kanan.py
+chmod +x IK_Arm_Kiri.py
+cd ~
+cd barelangfc/src/BarelangFC_InverseKinematicsDifferentialEvolution_Simulation/ik_arm_solver_de/marker/
+chmod +x random_marker_kanan.py
+chmod +x random_marker_kiri.py
+```
+
 **Terminal 1**
 **Running Simulation**
 note : after gazebo's open, click play on beside real time factor
