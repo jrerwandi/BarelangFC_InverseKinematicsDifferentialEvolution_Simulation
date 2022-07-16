@@ -11,7 +11,7 @@ import time
 pos = [0,0,0]
 ori = [0,0,0,0]
 status = "loading"
-aaa = 1
+id = 1
 solved = 0
 error = 0
 Done = False
@@ -22,7 +22,7 @@ def makeBox():
     marker.header.frame_id = "base_link"
     marker.type = Marker.CUBE
     marker.action = Marker.ADD
-    marker.id = aaa
+    marker.id = id
     marker.scale.x = 0.035
     marker.scale.y = 0.035
     marker.scale.z = 0.035
@@ -57,8 +57,8 @@ def makeBox():
     print("status", status)
     print ("Berhasil", solved)
     print("Error", error)
-    print("Marker",aaa)
-    if (aaa >= 1000):
+    print("Marker",id)
+    if (id >= 1000):
         Done = True
        # print("Done", Done)
    
@@ -66,7 +66,7 @@ def makeBox():
     return marker  
 
 def mytopic_callback(msg):
-    global status, aaa
+    global status, id
     status = msg.hasil
     pos[0] = msg.position_x
     pos[1] = msg.position_y
@@ -80,7 +80,7 @@ def mytopic_callback(msg):
         markerbasics_object = makeBox()
         marker_objectlisher.publish(markerbasics_object)
  
-    aaa+=1
+    id+=1
   
 
 def run():
