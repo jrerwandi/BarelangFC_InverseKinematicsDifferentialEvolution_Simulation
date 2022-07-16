@@ -15,24 +15,24 @@ status = "loading"
 solved = 0
 error = 0
 Done = False
-abc = True
+move_y = True
 x = 0.3
 y = -0.2
 z = 0.2
-a = 0.04
-b = 0.04
-aaa = 0
+point_y = 0.04
+point_z = 0.04
+point = 0
 def run():
-    global aaa,bbb,abc, y,z,a,b, Done
+    global point,move_y, y,z,point_y,point_z, Done
        
-    if(abc):
-        y += a
+    if(move_y):
+        y += point_y
         if (y >= -0.2 or y <= -0.36):
-            a *= -1
-            abc = False		
+            point_y *= -1
+            move_y= False		
     else:
-        z += b
-        abc = True
+        z += point_z
+        move_y = True
 
     if (y <= -0.36):
         y = -0.36
@@ -52,8 +52,8 @@ def run():
     msg.pose.orientation.y = 0
     msg.pose.orientation.z = 0
     msg.pose.orientation.w = 1
-    aaa+=1
-    if (aaa >= 23):
+    point+=1
+    if (point >= 23):
         Done = True
     if (Done):
         print("Done")
