@@ -22,10 +22,10 @@ def run():
 	path = Path()
 	path.header.stamp = rospy.Time.now()
 	path.header.frame_id="base_link"
-	for i in range(50):
+	for point in range(50):
 		if(move_y):
 			y += point_y
-			if (i >= 49):
+			if (point >= 49):
 				start_delay = True
 			if start_delay:
 				time.sleep(1)
@@ -34,7 +34,7 @@ def run():
 				move_y = False		
 		else:
 			z += point_z
-			if (i >= 49):
+			if (point >= 49):
 				start_delay = True
 			if start_delay:
 				time.sleep(1)
