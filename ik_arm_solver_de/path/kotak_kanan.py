@@ -17,7 +17,7 @@ y = -0.2
 z = 0.2
 
 def run():
-	global hehe,move_y,point_y,point_z,y,z
+	global start_delay,move_y,point_y,point_z,y,z
 	seq = 0
 	path = Path()
 	path.header.stamp = rospy.Time.now()
