@@ -10,18 +10,18 @@ rospy.init_node('by_path', anonymous=True)
 path_pub = rospy.Publisher('trajectory', Path, queue_size = 10)
 pose_pub = rospy.Publisher('pose', PoseStamped, queue_size = 10)
 rate = rospy.Rate(1)
-hehe = False
+start_delay = False #gambar pathnya dulu, setelah path muncul delay untuk publish aktif
 def run():	
-	global hehe
+	global start_delay
 	f = 0
 	seq = 0
 	path = Path()
 	path.header.stamp = rospy.Time.now()
 	path.header.frame_id="base_link"
-	for i in range(100):
+	for point in range(100):
 		
-		y = 0.07 * np.cos(f + i / 100.0 * 2 * np.pi)
-		z = 0.07 * np.sin(f + i / 100.0 * 2 * np.pi)
+		y = 0.07 * np.cos(f + point / 100.0 * 2 * np.pi)
+		z = 0.07 * np.sin(f + point / 100.0 * 2 * np.pi)
 		poseSt = PoseStamped()	
 		poseSt.header.stamp = rospy.Time.now()
 		poseSt.header.frame_id="base_link"
@@ -38,9 +38,9 @@ def run():
 		
 
 		path.poses.append(poseSt)
-		if (i >= 98):
-			hehe = True
-		if hehe:
+		if (point >= 98):
+			start_delay = True
+		if start_delay:
 			time.sleep(1)
 
 	rospy.loginfo(path)
