@@ -81,19 +81,19 @@ def TF(rot_axis=None, q=0, dx=0, dy=0, dz=0):
 def FK(angle, link):
     base = TF()
     T0 = TF('y', q = angle[0], dx = 0.0034, dy = -17.7209)
-    T0_1 = base.dot(T0)
+    T0_0 = base.dot(T0)
     T1 = TF('x', q = angle[1], dx = 2.506, dy = -4.9194, dz = -2.6717)
-    T1_2 = T0_1.dot(T1)
+    T1_0 = T0_0.dot(T1)
     
     T2 = TF('y', q = angle[2], dx = -0.79, dy = -2.45, dz = -20.7906)
-    T2_3 = T1_2.dot(T2)
+    T2_1 = T1_0.dot(T2)
     
     T3 = TF('z', q = angle[3],dx =-1.55, dy = 2.45, dz = -7.8296)
-    T3_4 = T2_3.dot(T3)
+    T3_2 = T2_1.dot(T3)
 
     T4 = TF(dx = 0.1081, dz = -22.8470)
-    T4_5 = T3_4.dot(T4)
-    return base, T0_0, T1_0, T2_1, T4_5
+    T4_3 = T3_2.dot(T4)
+    return base, T0_0, T1_0, T2_1, T4_3
     
 def obj_func (f_target, thetas, link):
     _,_,_,_,p = FK(thetas,link)
