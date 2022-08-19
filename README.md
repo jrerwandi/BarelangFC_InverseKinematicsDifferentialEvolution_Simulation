@@ -108,3 +108,7 @@ rosrun ik_arm_solver_de IK_Arm_kiri.py
 
 Download this folder fo running simulation\
 https://drive.google.com/file/d/1sk5Oou0sWBBAGiBrHiLFfxB44LGY8bKr/view?usp=sharing
+
+**Video**
+
+https://youtu.be/Jzk4io5-jXo
