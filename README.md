@@ -110,7 +110,7 @@ Download this folder fo running simulation\
 https://drive.google.com/file/d/1sk5Oou0sWBBAGiBrHiLFfxB44LGY8bKr/view?usp=sharing
 
 **Poster**
-![This is an image](https://github.com/jrerwandi/BarelangFC_InverseKinematicsDifferentialEvolution_Simulation/ik_arm_solver_de/Poster DE.jpeg)
+![This is an image](https://github.com/jrerwandi/BarelangFC_InverseKinematicsDifferentialEvolution_Simulation/ik_arm_solver_de/Poster\ /DE.jpeg)
 
 
 **Video**
