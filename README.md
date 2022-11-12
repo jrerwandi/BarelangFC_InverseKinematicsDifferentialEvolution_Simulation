@@ -109,10 +109,15 @@ rosrun ik_arm_solver_de IK_Arm_kiri.py
 Download this folder fo running simulation\
 https://drive.google.com/file/d/1sk5Oou0sWBBAGiBrHiLFfxB44LGY8bKr/view?usp=sharing
 
-**Poster**
+# Poster
 ![This is an image](https://github.com/jrerwandi/BarelangFC_InverseKinematicsDifferentialEvolution_Simulation/blob/937530a8b9a65dccf423e8ca80e61544cc8ddc9a/ik_arm_solver_de/Poster%20DE.jpeg)
 
 
-**Video**
+# Video
+<p align="center"> 
+  <kbd>
+    <a href="https://youtu.be/Jzk4io5-jXo" target="_blank"><img src="https://github.com/jrerwandi/BarelangFC_InverseKinematicsDifferentialEvolution_Simulation/blob/916bbc493b6c90fca6d8bb945078892542ee7940/ik_arm_solver_de/yt.jpg">
+  </a>
+  </kbd>
+</p>
 
-https://youtu.be/Jzk4io5-jXo
